@@ -12,38 +12,51 @@ npm i @freedom-editor/lighterhtml-paragraph-block
 
 ## Usage
 
-Remember to create a new instance and register it when you create a new instance of Freedom Editor.
+### Import paragraph block
+
+Import paragraph block to the script you config Freedom Editor. Create a new instance.
 
 ```
-import FreedomEditor from '../core.esm.js'
+import { Paragraph } from '@freedom-editor/lighterhtml-paragraph-block'
 
-import {
-  Paragraph
-} from './paragraph.esm.js'
+const paragraphBlock = new Paragraph()
+```
 
-//Create new instance for paragraph block
+### Register paragraph block in Freedom Editor instance
+
+Register paragraph block in as property of `options.registeredBlocks`. The name of the key should be identical with the property.
+
+```
+registeredBlocks: {
+  paragraphBlock: paragraphBlock
+},
+```
+
+### Full example
+
+```
+//Pre-bundle by bundler like Rollup.js
+
+import { FreedomEditor } from '@freedom-editor/core'
+import { Paragraph } from '@freedom-editor/lighterhtml-paragraph-block'
+
 const paragraphBlock = new Paragraph()
 
 const editor = new FreedomEditor({
   containerId: 'freedom-editor',
   defaultBlock: paragraphBlock,
-  //Register it in this editor instance
   registeredBlocks: {
     paragraphBlock: paragraphBlock
   },
   blockTemplate: [
-    paragraphBlock
+
   ],
   i18n: {
     rtl: 'ltr'
   }
 })
 
-editor.init([
-  new FreedomEditorKeyBindings({
-    editor: editor
-  }).init
-])
+editor.init([])
 
 editor.loadBlocks()
 ```
@@ -51,3 +64,7 @@ editor.loadBlocks()
 ## API Reference
 
 TODO
+
+## License
+
+This project is licensed under the MIT License - see the [license](https://github.com/winston0410/freedom-editor/LICENSE.md) for more details.

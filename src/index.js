@@ -28,8 +28,8 @@ class Paragraph {
   render (i18n, savedData) {
     const textDirection = (i18n.rtl !== undefined) ? i18n.rtl : this.options.i18n.rtl
 
-    return html.node`<div class="blocks ${this.constructor.name}-block" data-block-type="${this.constructor.name}">
-    <p contenteditable dir="${textDirection}">${savedData}</p>
+    return html.node`<div class="freedom-editor-blocks ${this.constructor.name}-block" data-block-type="${this.constructor.name}">
+    <p contenteditable dir="${textDirection}">${savedData.data.text}</p>
     </div>`
   }
 

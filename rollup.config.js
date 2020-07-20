@@ -9,9 +9,9 @@ const peerDepsExternal = require('rollup-plugin-peer-deps-external')
 
 export default [
   {
-    input: 'src/paragraph.js',
+    input: 'src/index.js',
     output: {
-      file: 'dist/paragraph.esm.js',
+      file: 'dist/index.esm.js',
       format: 'esm',
       plugins: [
         terser({
