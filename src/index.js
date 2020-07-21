@@ -4,6 +4,10 @@ import {
   svg
 } from 'lighterhtml'
 
+import {
+  getSavedData
+} from './utilities/helper.js'
+
 class Paragraph {
   constructor (customOptions) {
     const defaultOptions = {
@@ -29,18 +33,16 @@ class Paragraph {
     const textDirection = (i18n.rtl !== undefined) ? i18n.rtl : this.options.i18n.rtl
 
     return html.node`<div class="freedom-editor-blocks ${this.constructor.name}-block" data-block-type="${this.constructor.name}">
-    <p contenteditable dir="${textDirection}">${savedData.data.text}</p>
+    <p contenteditable dir="${textDirection}">${getSavedData(savedData)}</p>
     </div>`
   }
 
   save (block) {
     const editableField = block.querySelector('p')
-    if (editableField.textContent === '') {
-      return
-    }
+
     // Cannot pass type: this.constructor.name, or else the type of the block will be minifyed
     return {
-      type: 'paragraph',
+      type: this.constructor.name,
       data: {
         text: editableField.textContent
       }

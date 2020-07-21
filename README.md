@@ -14,7 +14,7 @@ npm i @freedom-editor/lighterhtml-paragraph-block
 
 ### Import paragraph block
 
-Import paragraph block to the script you config Freedom Editor. Create a new instance.
+Import paragraph block to the script where you config Freedom Editor. Create a new instance.
 
 ```
 import { Paragraph } from '@freedom-editor/lighterhtml-paragraph-block'
@@ -24,12 +24,12 @@ const paragraphBlock = new Paragraph()
 
 ### Register paragraph block in Freedom Editor instance
 
-Register paragraph block in as property of `options.registeredBlocks`. The name of the key should be identical with the property.
+Register this block in `options.registeredBlocks`.
 
 ```
-registeredBlocks: {
-  paragraphBlock: paragraphBlock
-},
+registeredBlocks: [
+  paragraphBlock
+],
 ```
 
 ### Full example
