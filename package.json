@@ -20,6 +20,7 @@
   "repository": "github:winston0410/freedom-editor-lighterhtml-paragraph-block",
   "license": "MIT",
   "dependencies": {
+    "@freedom-editor/core": "^1.0.7",
     "lighterhtml": "^4.0.2"
   },
   "devDependencies": {
