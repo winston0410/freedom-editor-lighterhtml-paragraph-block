@@ -1,12 +1,12 @@
-import {
+const {
   render,
   html,
   svg
-} from 'lighterhtml'
+} = require('lighterhtml')
 
-import {
+const {
   getSavedData
-} from './utilities/helper.js'
+} = require('./utilities/helper.js')
 
 class Paragraph {
   constructor (customOptions) {
@@ -50,6 +50,6 @@ class Paragraph {
   }
 };
 
-export {
+module.exports = {
   Paragraph
 }
