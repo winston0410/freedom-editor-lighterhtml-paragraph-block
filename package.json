@@ -1,6 +1,6 @@
 {
   "name": "@freedom-editor/lighterhtml-paragraph-block",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A paragraph block for Freedom Editor, built with lighterhtml",
   "main": "./src/index.js",
   "scripts": {
