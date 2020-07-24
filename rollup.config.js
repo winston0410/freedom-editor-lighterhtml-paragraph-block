@@ -38,7 +38,7 @@ export default [
       file: 'dist/index.cjs.js',
       format: 'cjs',
       plugins: [
-        terser({
+        /* terser({
           compress: {
             drop_console: true
           },
@@ -46,11 +46,14 @@ export default [
             comments: false
           },
           ecma: 2019
-        })
+        }) */
       ]
     },
     plugins: [
-      nodeResolve({})
+      nodeResolve({}),
+      commonjs({
+        include: ['./src/**', 'node_modules/**']
+      })
     ]
   }
 

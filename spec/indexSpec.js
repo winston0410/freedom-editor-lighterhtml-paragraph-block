@@ -1,6 +1,14 @@
-import { Paragraph } from '../src/index.js'
+const jsdom = require('jsdom')
+const { JSDOM } = jsdom
+const dom = new JSDOM('<html><body></body></html>')
 
-describe('Test block essential functionalities', () => {
+global.document = dom.window.document
+global.window = dom.window
+global.navigator = dom.window.navigator
+
+const { Paragraph } = require('../src/index.js')
+
+describe('Test block essential functionalities:', () => {
   const paragraphBlock = new Paragraph()
 
   const i18n = {
@@ -8,15 +16,34 @@ describe('Test block essential functionalities', () => {
     rtl: 'auto'
   }
 
-  it('should return an node without data with render()', () => {
+  it('render() should return an node', () => {
     expect(paragraphBlock.render(i18n)).toHaveClass('freedom-editor-blocks')
   })
 
-  /* it('should return an node with data with render()', () => {
+  it('render() should return an node with content, when passing in data', () => {
+    const blockData = {
+      type: paragraphBlock.constructor.name,
+      data: {
+        text: 'Testing'
+      }
+    }
 
+    const renderedBlock = paragraphBlock.render(i18n, blockData)
+
+    expect(renderedBlock.querySelector('p').textContent).toContain(blockData.data.text)
   })
 
-  it('should save content of a node with save()', () => {
+  it('save() should return null when the block is empty', () => {
+    const block = paragraphBlock.render(i18n)
 
-  }) */
+    expect(paragraphBlock.save(block)).nothing()
+  })
+
+  it('save() should return JSON when the block is not empty', () => {
+    const block = paragraphBlock.render(i18n)
+    const textField = block.querySelector('p')
+    textField.textContent = 'Testing'
+
+    expect(paragraphBlock.save(block)).toBeTruthy()
+  })
 })
