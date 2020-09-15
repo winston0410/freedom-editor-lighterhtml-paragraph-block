@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@freedom-editor/core": "^1.0.7",
-    "lighterhtml": "^4.0.2"
+    "lighterhtml": "^4.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
